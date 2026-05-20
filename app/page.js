@@ -2,8 +2,6 @@
 import { useState } from "react";
 
 const FB_POST_URL = "https://www.facebook.com/share/p/18o9LakWMj/?mibextid=wwXlfr";
-const AFFILIATE_ID = "17395950528";
-const SUB_ID = "MEOZZ";
 
 const VOUCHERS = [
   {
@@ -23,6 +21,82 @@ const VOUCHERS = [
     expiry: "Còn 1 ngày",
   },
 ];
+
+/* ── Real SVG icons ──────────────────────────────────── */
+
+function IconLink({ size = 20, color = "#a78bfa" }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+    </svg>
+  );
+}
+
+function IconClipboard({ size = 20, color = "#999" }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="9" y="2" width="6" height="4" rx="1" />
+      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+    </svg>
+  );
+}
+
+function IconGift({ size = 20, color = "#999" }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="20 12 20 22 4 22 4 12" />
+      <rect x="2" y="7" width="20" height="5" />
+      <line x1="12" y1="22" x2="12" y2="7" />
+      <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z" />
+      <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" />
+    </svg>
+  );
+}
+
+function FacebookLogo({ size = 44 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="28" cy="28" r="28" fill="#1877F2" />
+      <path
+        d="M38.5 28C38.5 22.201 33.799 17.5 28 17.5C22.201 17.5 17.5 22.201 17.5 28C17.5 33.245 21.354 37.589 26.406 38.368V31.094H23.629V28H26.406V25.597C26.406 22.855 28.024 21.358 30.512 21.358C31.704 21.358 32.953 21.573 32.953 21.573V24.266H31.573C30.211 24.266 29.793 25.1 29.793 25.955V28H32.823L32.342 31.094H29.793V38.368C34.845 37.589 38.5 33.245 38.5 28Z"
+        fill="white"
+      />
+    </svg>
+  );
+}
+
+function ShopeeLogo({ size = 22 }) {
+  /* Shopee's orange bag icon approximated as SVG */
+  return (
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="48" height="48" rx="12" fill="#EE4D2D" />
+      <path
+        d="M24 8C20.134 8 17 11.134 17 15H13C12.448 15 12 15.448 12 16L10.5 36C10.5 36.828 11.172 37.5 12 37.5H36C36.828 37.5 37.5 36.828 37.5 36L36 16C36 15.448 35.552 15 35 15H31C31 11.134 27.866 8 24 8ZM24 11C26.209 11 28 12.791 28 15H20C20 12.791 21.791 11 24 11ZM19.5 22.5C19.5 23.881 20.619 25 22 25C23.381 25 24.5 26.119 24.5 27.5C24.5 28.881 23.381 30 22 30C19.791 30 18 28.209 18 26H16C16 29.314 18.686 32 22 32C24.761 32 27 29.761 27 27.5C27 25.239 25.209 23 22.5 23C21.948 23 21.5 22.552 21.5 22C21.5 21.448 21.948 21 22.5 21C24.433 21 26 22.567 26 24.5H28C28 21.462 25.538 19 22.5 19C20.015 19 18 21.015 18 23.5L19.5 22.5Z"
+        fill="white"
+      />
+    </svg>
+  );
+}
+
+function SparkleIcon({ size = 18 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2L13.5 8.5L20 10L13.5 11.5L12 18L10.5 11.5L4 10L10.5 8.5L12 2Z" />
+    </svg>
+  );
+}
+
+function CheckCircleIcon({ size = 22, color = "#22863a" }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="10" />
+      <polyline points="9 12 11 14 15 10" />
+    </svg>
+  );
+}
+
+/* ── Main page ───────────────────────────────────────── */
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("convert");
@@ -73,19 +147,33 @@ export default function Home() {
       fontFamily: "'Be Vietnam Pro', Arial, sans-serif",
       paddingBottom: "40px",
     }}>
-      {/* Header */}
+
+      {/* ── Header ── */}
       <div style={{ position: "relative", textAlign: "center", paddingTop: "28px", paddingBottom: "10px" }}>
-        {/* Hearts */}
-        <span style={{ position: "absolute", left: "16px", top: "20px", fontSize: "30px", lineHeight: 1 }}>💗</span>
-        <span style={{ position: "absolute", left: "48px", top: "52px", fontSize: "18px", lineHeight: 1 }}>💗</span>
-        <span style={{ position: "absolute", right: "16px", top: "20px", fontSize: "30px", lineHeight: 1 }}>💗</span>
-        <span style={{ position: "absolute", right: "48px", top: "52px", fontSize: "18px", lineHeight: 1 }}>💗</span>
-        {/* Sparkle dots */}
+        {/* Heart decorations – real SVG hearts */}
+        {[
+          { left: "14px", top: "18px", size: 32 },
+          { left: "48px", top: "50px", size: 20 },
+        ].map((h, i) => (
+          <svg key={`hl${i}`} style={{ position: "absolute", left: h.left, top: h.top }} width={h.size} height={h.size} viewBox="0 0 24 24" fill="#ff6eb4" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+          </svg>
+        ))}
+        {[
+          { right: "14px", top: "18px", size: 32 },
+          { right: "48px", top: "50px", size: 20 },
+        ].map((h, i) => (
+          <svg key={`hr${i}`} style={{ position: "absolute", right: h.right, top: h.top }} width={h.size} height={h.size} viewBox="0 0 24 24" fill="#ff6eb4" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+          </svg>
+        ))}
+
+        {/* Star sparkles */}
         {[20, 70, 130, 200, 270, 330].map((left, i) => (
-          <span key={`sl-${i}`} style={{ position: "absolute", left: `${left}px`, top: i % 2 === 0 ? "10px" : "38px", fontSize: "11px", color: "#ff69b4", opacity: 0.75 }}>✦</span>
+          <span key={`sl-${i}`} style={{ position: "absolute", left: `${left}px`, top: i % 2 === 0 ? "10px" : "40px", fontSize: "11px", color: "#ff69b4", opacity: 0.8 }}>✦</span>
         ))}
         {[20, 70, 130, 200, 270, 330].map((right, i) => (
-          <span key={`sr-${i}`} style={{ position: "absolute", right: `${right}px`, top: i % 2 === 0 ? "10px" : "38px", fontSize: "11px", color: "#ff69b4", opacity: 0.75 }}>✦</span>
+          <span key={`sr-${i}`} style={{ position: "absolute", right: `${right}px`, top: i % 2 === 0 ? "10px" : "40px", fontSize: "11px", color: "#ff69b4", opacity: 0.8 }}>✦</span>
         ))}
 
         <h1 style={{
@@ -105,7 +193,8 @@ export default function Home() {
       </div>
 
       <div style={{ maxWidth: "500px", margin: "18px auto 0", padding: "0 16px" }}>
-        {/* Tabs */}
+
+        {/* ── Tabs ── */}
         <div style={{
           display: "flex",
           background: "#fff",
@@ -113,32 +202,26 @@ export default function Home() {
           padding: "6px",
           boxShadow: "0 2px 12px rgba(0,0,0,0.08)",
         }}>
-          <button
-            onClick={() => setActiveTab("convert")}
-            style={{
-              flex: 1, padding: "12px 0", border: "none", borderRadius: "50px",
-              cursor: "pointer", fontFamily: "inherit", fontWeight: "700", fontSize: "16px",
-              transition: "all 0.2s",
-              background: activeTab === "convert" ? "linear-gradient(90deg,#c77dff,#9d4edd)" : "transparent",
-              color: activeTab === "convert" ? "#fff" : "#aaa",
-              display: "flex", alignItems: "center", justifyContent: "center", gap: "7px",
-            }}
-          >
-            <span>🔗</span> Chuyển link
-          </button>
-          <button
-            onClick={() => setActiveTab("voucher")}
-            style={{
-              flex: 1, padding: "12px 0", border: "none", borderRadius: "50px",
-              cursor: "pointer", fontFamily: "inherit", fontWeight: "700", fontSize: "16px",
-              transition: "all 0.2s",
-              background: activeTab === "voucher" ? "linear-gradient(90deg,#c77dff,#9d4edd)" : "transparent",
-              color: activeTab === "voucher" ? "#fff" : "#aaa",
-              display: "flex", alignItems: "center", justifyContent: "center", gap: "7px",
-            }}
-          >
-            <span>🎁</span> Mã giảm giá
-          </button>
+          {[
+            { key: "convert", label: "Chuyển link", Icon: () => <IconLink size={18} color={activeTab === "convert" ? "#fff" : "#aaa"} /> },
+            { key: "voucher", label: "Mã giảm giá", Icon: () => <IconGift size={18} color={activeTab === "voucher" ? "#fff" : "#aaa"} /> },
+          ].map(({ key, label, Icon }) => (
+            <button
+              key={key}
+              onClick={() => setActiveTab(key)}
+              style={{
+                flex: 1, padding: "12px 0", border: "none", borderRadius: "50px",
+                cursor: "pointer", fontFamily: "inherit", fontWeight: "700", fontSize: "16px",
+                transition: "all 0.2s",
+                background: activeTab === key ? "linear-gradient(90deg,#c77dff,#9d4edd)" : "transparent",
+                color: activeTab === key ? "#fff" : "#aaa",
+                display: "flex", alignItems: "center", justifyContent: "center", gap: "7px",
+              }}
+            >
+              <Icon />
+              {label}
+            </button>
+          ))}
         </div>
 
         {/* ── CONVERT TAB ── */}
@@ -150,10 +233,9 @@ export default function Home() {
               marginTop: "18px", boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
             }}>
               <div style={{ position: "relative" }}>
-                <span style={{
-                  position: "absolute", left: "14px", top: "50%",
-                  transform: "translateY(-50%)", fontSize: "20px", opacity: 0.45,
-                }}>🔗</span>
+                <span style={{ position: "absolute", left: "14px", top: "50%", transform: "translateY(-50%)" }}>
+                  <IconLink size={20} color="#c4b5fd" />
+                </span>
                 <input
                   type="text"
                   value={inputLink}
@@ -171,10 +253,12 @@ export default function Home() {
                   style={{
                     position: "absolute", right: "12px", top: "50%",
                     transform: "translateY(-50%)", background: "none", border: "none",
-                    cursor: "pointer", fontSize: "20px", opacity: 0.45, padding: "4px",
+                    cursor: "pointer", padding: "4px", opacity: 0.5,
                   }}
                   title="Dán từ clipboard"
-                >📋</button>
+                >
+                  <IconClipboard size={22} color="#666" />
+                </button>
               </div>
 
               <button
@@ -187,9 +271,17 @@ export default function Home() {
                   color: "#fff", fontSize: "18px", fontWeight: "800",
                   cursor: loading ? "not-allowed" : "pointer", fontFamily: "inherit",
                   letterSpacing: "0.5px", transition: "opacity 0.2s",
+                  display: "flex", alignItems: "center", justifyContent: "center", gap: "8px",
                 }}
               >
-                {loading ? "⏳ Đang xử lý..." : "✨ CHUYỂN ĐỔI NGAY"}
+                {loading ? (
+                  "⏳ Đang xử lý..."
+                ) : (
+                  <>
+                    <SparkleIcon size={20} />
+                    CHUYỂN ĐỔI NGAY
+                  </>
+                )}
               </button>
 
               <p style={{ textAlign: "center", color: "#bbb", fontSize: "13px", marginTop: "10px", marginBottom: 0 }}>
@@ -197,7 +289,7 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Result — only shown after conversion */}
+            {/* Result */}
             {result && (
               <>
                 {result.success ? (
@@ -209,15 +301,14 @@ export default function Home() {
                     padding: "20px",
                   }}>
                     <div style={{ color: "#22863a", fontSize: "17px", fontWeight: "800", display: "flex", alignItems: "center", gap: "8px" }}>
-                      <span style={{ fontSize: "22px" }}>✅</span> Đã chuyển đổi xong
+                      <CheckCircleIcon size={22} color="#22863a" />
+                      Đã chuyển đổi xong
                     </div>
-                    <div style={{
-                      marginTop: "12px", fontSize: "13px", color: "#444",
-                      wordBreak: "break-all", lineHeight: 1.6,
-                    }}>
+                    <div style={{ marginTop: "12px", fontSize: "13px", color: "#444", wordBreak: "break-all", lineHeight: 1.6 }}>
                       {result.affiliateLink}
                     </div>
                     <div style={{ display: "flex", gap: "12px", marginTop: "16px" }}>
+                      {/* Copy button */}
                       <button
                         onClick={handleCopy}
                         style={{
@@ -225,11 +316,14 @@ export default function Home() {
                           background: copied ? "#169b2e" : "linear-gradient(90deg,#43d854,#23b142)",
                           color: "#fff", fontSize: "15px", fontWeight: "800",
                           cursor: "pointer", fontFamily: "inherit",
-                          display: "flex", alignItems: "center", justifyContent: "center", gap: "6px",
+                          display: "flex", alignItems: "center", justifyContent: "center", gap: "7px",
                         }}
                       >
-                        🔗 {copied ? "ĐÃ SAO CHÉP!" : "SAO CHÉP LINK"}
+                        <IconLink size={17} color="#fff" />
+                        {copied ? "ĐÃ SAO CHÉP!" : "SAO CHÉP LINK"}
                       </button>
+
+                      {/* FB button */}
                       <a
                         href={FB_POST_URL}
                         target="_blank"
@@ -239,14 +333,10 @@ export default function Home() {
                           background: "linear-gradient(90deg,#1877f2,#0d5be1)",
                           color: "#fff", fontSize: "15px", fontWeight: "800",
                           cursor: "pointer", textDecoration: "none",
-                          display: "flex", alignItems: "center", justifyContent: "center", gap: "6px",
+                          display: "flex", alignItems: "center", justifyContent: "center", gap: "8px",
                         }}
                       >
-                        <span style={{
-                          width: "22px", height: "22px", background: "#fff", borderRadius: "50%",
-                          display: "inline-flex", alignItems: "center", justifyContent: "center",
-                          color: "#1877f2", fontWeight: "900", fontSize: "14px", flexShrink: 0,
-                        }}>f</span>
+                        <FacebookLogo size={22} />
                         ĐẾN BÀI ĐĂNG FB
                       </a>
                     </div>
@@ -261,7 +351,7 @@ export default function Home() {
                   </div>
                 )}
 
-                {/* Tip box — shown only after result */}
+                {/* Tip box */}
                 <div style={{
                   marginTop: "16px", padding: "16px 18px",
                   border: "2px dashed #ffb3cc", borderRadius: "18px",
@@ -274,12 +364,12 @@ export default function Home() {
                   </a>
                 </div>
 
-                {/* Voucher cards — shown only after result */}
+                {/* Voucher cards after result */}
                 {VOUCHERS.map((v) => (
                   <VoucherCard key={v.id} voucher={v} />
                 ))}
 
-                {/* Tip accordion — shown only after result */}
+                {/* Tip accordion */}
                 <div
                   onClick={() => setTipOpen(!tipOpen)}
                   style={{
@@ -292,10 +382,7 @@ export default function Home() {
                   <span style={{ color: "#b7791f", fontWeight: "700", fontSize: "15px" }}>
                     💡 <u>Mẹo săn Voucher 20-25% Shopee × Facebook</u>
                   </span>
-                  <span style={{
-                    color: "#b7791f", fontSize: "18px", transition: "transform 0.2s",
-                    display: "inline-block", transform: tipOpen ? "rotate(180deg)" : "rotate(0deg)",
-                  }}>▾</span>
+                  <span style={{ color: "#b7791f", fontSize: "18px", transition: "transform 0.2s", display: "inline-block", transform: tipOpen ? "rotate(180deg)" : "rotate(0deg)" }}>▾</span>
                 </div>
                 {tipOpen && (
                   <div style={{
@@ -336,6 +423,8 @@ export default function Home() {
   );
 }
 
+/* ── VoucherCard ─────────────────────────────────────── */
+
 function VoucherCard({ voucher, selectable, selected, onSelect }) {
   return (
     <div
@@ -354,20 +443,16 @@ function VoucherCard({ voucher, selectable, selected, onSelect }) {
       }}
     >
       {/* Notch circles for ticket effect */}
-      <div style={{
-        position: "absolute", left: "152px", top: "-10px",
-        width: "20px", height: "20px", borderRadius: "50%",
-        background: "linear-gradient(160deg, #ffd6e8 0%, #fce4f3 40%, #f9d6f5 70%, #ffd6e0 100%)",
-        zIndex: 2,
-      }} />
-      <div style={{
-        position: "absolute", left: "152px", bottom: "-10px",
-        width: "20px", height: "20px", borderRadius: "50%",
-        background: "linear-gradient(160deg, #ffd6e8 0%, #fce4f3 40%, #f9d6f5 70%, #ffd6e0 100%)",
-        zIndex: 2,
-      }} />
+      {[{ top: "-10px" }, { bottom: "-10px" }].map((pos, i) => (
+        <div key={i} style={{
+          position: "absolute", left: "152px", ...pos,
+          width: "20px", height: "20px", borderRadius: "50%",
+          background: "linear-gradient(160deg, #ffd6e8 0%, #fce4f3 40%, #f9d6f5 70%, #ffd6e0 100%)",
+          zIndex: 2,
+        }} />
+      ))}
 
-      {/* Left orange section */}
+      {/* Left orange section with real Facebook logo */}
       <div style={{
         width: "162px", minWidth: "162px",
         background: "linear-gradient(160deg,#ff9f43,#ff5a00)",
@@ -376,13 +461,7 @@ function VoucherCard({ voucher, selectable, selected, onSelect }) {
         alignItems: "center", justifyContent: "center",
         padding: "20px 12px", gap: "10px",
       }}>
-        <div style={{
-          width: "68px", height: "68px", borderRadius: "50%",
-          background: "#1877f2",
-          display: "flex", alignItems: "center", justifyContent: "center",
-        }}>
-          <span style={{ color: "#fff", fontSize: "38px", fontWeight: "900", lineHeight: 1 }}>f</span>
-        </div>
+        <FacebookLogo size={68} />
         <span style={{ fontWeight: "800", fontSize: "17px" }}>{voucher.platform}</span>
       </div>
 
@@ -394,7 +473,7 @@ function VoucherCard({ voucher, selectable, selected, onSelect }) {
         margin: "10px 0",
       }} />
 
-      {/* Right content section */}
+      {/* Right content */}
       <div style={{ flex: 1, padding: "18px 16px" }}>
         <div style={{ fontSize: "17px", fontWeight: "800", color: "#ff5a00" }}>{voucher.discount}</div>
         <div style={{ fontSize: "14px", color: "#555", marginTop: "5px" }}>{voucher.minOrder}</div>
@@ -407,7 +486,7 @@ function VoucherCard({ voucher, selectable, selected, onSelect }) {
         <div style={{ marginTop: "10px", color: "#aaa", fontSize: "13px" }}>Hết hạn trong: {voucher.expiry}</div>
       </div>
 
-      {/* Radio button (voucher tab only) */}
+      {/* Radio (voucher tab only) */}
       {selectable && (
         <div style={{ display: "flex", alignItems: "center", paddingRight: "16px" }}>
           <div style={{

@@ -54,12 +54,12 @@ function IconGift({ size = 20, color = "#999" }) {
   );
 }
 
-function FacebookLogo({ size = 44 }) {
+function FacebookLogo({ size = 68 }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="28" cy="28" r="28" fill="#1877F2" />
+    <svg width={size} height={size} viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="34" cy="34" r="34" fill="#1877F2" />
       <path
-        d="M38.5 28C38.5 22.201 33.799 17.5 28 17.5C22.201 17.5 17.5 22.201 17.5 28C17.5 33.245 21.354 37.589 26.406 38.368V31.094H23.629V28H26.406V25.597C26.406 22.855 28.024 21.358 30.512 21.358C31.704 21.358 32.953 21.573 32.953 21.573V24.266H31.573C30.211 24.266 29.793 25.1 29.793 25.955V28H32.823L32.342 31.094H29.793V38.368C34.845 37.589 38.5 33.245 38.5 28Z"
+        d="M45 34C45 27.925 40.075 23 34 23C27.925 23 23 27.925 23 34C23 39.49 26.926 44.04 32.125 44.865V37.187H29.078V34H32.125V31.412C32.125 28.387 33.915 26.75 36.657 26.75C37.97 26.75 39.344 26.987 39.344 26.987V29.938H37.83C36.34 29.938 35.875 30.867 35.875 31.82V34H39.203L38.67 37.187H35.875V44.865C41.074 44.04 45 39.49 45 34Z"
         fill="white"
       />
     </svg>
@@ -336,7 +336,7 @@ export default function Home() {
                           display: "flex", alignItems: "center", justifyContent: "center", gap: "8px",
                         }}
                       >
-                        <FacebookLogo size={22} />
+                        <FacebookLogo size={24} />
                         ĐẾN BÀI ĐĂNG FB
                       </a>
                     </div>

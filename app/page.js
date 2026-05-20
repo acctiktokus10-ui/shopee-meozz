@@ -7,17 +7,31 @@ const VOUCHERS = [
   {
     id: 1,
     platform: "Facebook",
-    discount: "Giảm 20% – Tối đa 250kđ",
-    minOrder: "Đơn từ thiểu 50kđ",
+    percent: 20,
+    discount: "Giảm 20% Giảm tối đa 250kđ",
+    minOrder: "Đơn tối thiểu 50kđ",
     tag: "Độc Quyền Facebook",
-    expiry: "Còn 1 ngày",
+    usedPercent: 89,
+    expiry: null,
   },
   {
     id: 2,
     platform: "Facebook",
-    discount: "Giảm 22% – Tối đa 500kđ",
-    minOrder: "Đơn từ thiểu 50kđ",
+    percent: 22,
+    discount: "Giảm 22% Giảm tối đa 500kđ",
+    minOrder: "Đơn tối thiểu 50kđ",
     tag: "Độc Quyền Facebook",
+    usedPercent: 81,
+    expiry: null,
+  },
+  {
+    id: 3,
+    platform: "Facebook",
+    percent: 25,
+    discount: "Giảm 25% Giảm tối đa 1trđ",
+    minOrder: "Đơn tối thiểu 50kđ",
+    tag: "Độc Quyền Facebook",
+    usedPercent: null,
     expiry: "Còn 1 ngày",
   },
 ];
@@ -430,67 +444,103 @@ function VoucherCard({ voucher, selectable, selected, onSelect }) {
     <div
       onClick={selectable ? onSelect : undefined}
       style={{
-        marginTop: "14px",
+        marginTop: "12px",
         display: "flex",
-        borderRadius: "18px",
+        borderRadius: "16px",
         overflow: "hidden",
-        boxShadow: "0 4px 16px rgba(0,0,0,0.08)",
+        boxShadow: "0 3px 12px rgba(0,0,0,0.09)",
         background: "#fff",
         cursor: selectable ? "pointer" : "default",
-        border: selected ? "2.5px solid #9d4edd" : "2.5px solid transparent",
+        border: selected ? "2px solid #9d4edd" : "2px solid transparent",
         transition: "border 0.15s",
         position: "relative",
+        minHeight: "90px",
       }}
     >
       {/* Notch circles for ticket effect */}
-      {[{ top: "-10px" }, { bottom: "-10px" }].map((pos, i) => (
+      {[{ top: "-9px" }, { bottom: "-9px" }].map((pos, i) => (
         <div key={i} style={{
-          position: "absolute", left: "152px", ...pos,
-          width: "20px", height: "20px", borderRadius: "50%",
+          position: "absolute", left: "108px", ...pos,
+          width: "18px", height: "18px", borderRadius: "50%",
           background: "linear-gradient(160deg, #ffd6e8 0%, #fce4f3 40%, #f9d6f5 70%, #ffd6e0 100%)",
           zIndex: 2,
         }} />
       ))}
 
-      {/* Left orange section with real Facebook logo */}
+      {/* Left orange section */}
       <div style={{
-        width: "162px", minWidth: "162px",
-        background: "linear-gradient(160deg,#ff9f43,#ff5a00)",
+        width: "116px", minWidth: "116px",
+        background: "linear-gradient(160deg,#ff9f43,#ee5a00)",
         color: "#fff",
         display: "flex", flexDirection: "column",
         alignItems: "center", justifyContent: "center",
-        padding: "20px 12px", gap: "10px",
+        padding: "14px 8px", gap: "6px",
       }}>
-        <FacebookLogo size={68} />
-        <span style={{ fontWeight: "800", fontSize: "17px" }}>{voucher.platform}</span>
+        <FacebookLogo size={52} />
+        <span style={{ fontWeight: "800", fontSize: "13px", letterSpacing: "0.3px" }}>{voucher.platform}</span>
       </div>
 
       {/* Dashed divider */}
       <div style={{
         width: "1px",
-        background: "repeating-linear-gradient(to bottom, #e0e0e0 0px, #e0e0e0 6px, transparent 6px, transparent 12px)",
+        background: "repeating-linear-gradient(to bottom, #ddd 0px, #ddd 5px, transparent 5px, transparent 10px)",
         alignSelf: "stretch",
-        margin: "10px 0",
+        margin: "8px 0",
       }} />
 
       {/* Right content */}
-      <div style={{ flex: 1, padding: "18px 16px" }}>
-        <div style={{ fontSize: "17px", fontWeight: "800", color: "#ff5a00" }}>{voucher.discount}</div>
-        <div style={{ fontSize: "14px", color: "#555", marginTop: "5px" }}>{voucher.minOrder}</div>
+      <div style={{ flex: 1, padding: "12px 12px 10px" }}>
+        <div style={{ fontSize: "14px", fontWeight: "800", color: "#ff5a00", lineHeight: 1.3 }}>{voucher.discount}</div>
+        <div style={{ fontSize: "11px", color: "#666", marginTop: "3px" }}>{voucher.minOrder}</div>
         <div style={{
-          display: "inline-block", marginTop: "8px",
-          border: "1.5px solid #ff9f43", color: "#ff7b00",
-          padding: "3px 10px", borderRadius: "7px",
-          fontSize: "12px", fontWeight: "600",
+          display: "inline-block", marginTop: "6px",
+          border: "1px solid #ff9f43", color: "#ff7b00",
+          padding: "2px 8px", borderRadius: "5px",
+          fontSize: "10px", fontWeight: "700",
         }}>{voucher.tag}</div>
-        <div style={{ marginTop: "10px", color: "#aaa", fontSize: "13px" }}>Hết hạn trong: {voucher.expiry}</div>
+
+        {/* Usage bar OR expiry */}
+        {voucher.usedPercent !== null ? (
+          <div style={{ marginTop: "8px" }}>
+            <div style={{
+              height: "5px", borderRadius: "99px", background: "#eee", overflow: "hidden",
+            }}>
+              <div style={{
+                height: "100%",
+                width: `${voucher.usedPercent}%`,
+                background: "linear-gradient(90deg, #ff4e00, #ec9f05)",
+                borderRadius: "99px",
+              }} />
+            </div>
+            <div style={{ fontSize: "10px", color: "#aaa", marginTop: "3px" }}>
+              Đã dùng {voucher.usedPercent}% · hết hạn trong: ...
+            </div>
+          </div>
+        ) : (
+          <div style={{ marginTop: "8px", fontSize: "11px", color: "#aaa" }}>
+            hết hạn trong: <span style={{ color: "#555", fontWeight: "600" }}>{voucher.expiry}</span>
+            {" "}<span style={{ color: "#1877f2", fontWeight: "600", cursor: "pointer" }}>Điều kiện</span>
+          </div>
+        )}
       </div>
+
+      {/* "Dùng ngay" button */}
+      {!selectable && (
+        <div style={{ display: "flex", alignItems: "center", paddingRight: "12px" }}>
+          <div style={{
+            border: "1.5px solid #ee5a00", color: "#ee5a00",
+            borderRadius: "8px", padding: "6px 8px",
+            fontSize: "11px", fontWeight: "700", textAlign: "center",
+            lineHeight: 1.3, whiteSpace: "nowrap",
+          }}>Dùng<br />ngay</div>
+        </div>
+      )}
 
       {/* Radio (voucher tab only) */}
       {selectable && (
-        <div style={{ display: "flex", alignItems: "center", paddingRight: "16px" }}>
+        <div style={{ display: "flex", alignItems: "center", paddingRight: "14px" }}>
           <div style={{
-            width: "22px", height: "22px", borderRadius: "50%",
+            width: "20px", height: "20px", borderRadius: "50%",
             border: `2.5px solid ${selected ? "#9d4edd" : "#ddd"}`,
             background: selected ? "#9d4edd" : "#fff",
             transition: "all 0.15s",

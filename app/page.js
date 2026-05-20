@@ -319,7 +319,7 @@ export default function Home() {
                       Đã chuyển đổi xong
                     </div>
                     <div style={{ marginTop: "12px", fontSize: "13px", color: "#444", wordBreak: "break-all", lineHeight: 1.6 }}>
-                      {`https://s.shopee.vn/${inputLink.trim().replace(/\/$/, "").split("/").filter(Boolean).pop()?.split("?")[0] || "link"}`}
+                      {"https://s.shopee.vn..."}
                     </div>
                     <div style={{ display: "flex", gap: "12px", marginTop: "16px" }}>
                       {/* Copy button */}

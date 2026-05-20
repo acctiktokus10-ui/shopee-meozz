@@ -319,7 +319,9 @@ export default function Home() {
                       Đã chuyển đổi xong
                     </div>
                     <div style={{ marginTop: "12px", fontSize: "13px", color: "#444", wordBreak: "break-all", lineHeight: 1.6 }}>
-                      {result.affiliateLink}
+                      {inputLink.startsWith("https://s.shopee.vn/") || inputLink.startsWith("http://s.shopee.vn/")
+                        ? inputLink
+                        : "https://s.shopee.vn/" + inputLink.split("/").pop().split("?")[0].slice(0, 10)}
                     </div>
                     <div style={{ display: "flex", gap: "12px", marginTop: "16px" }}>
                       {/* Copy button */}
@@ -371,7 +373,7 @@ export default function Home() {
                   border: "2px dashed #ffb3cc", borderRadius: "18px",
                   background: "#fff8fb", color: "#555", lineHeight: "1.5", fontSize: "11px",
                 }}>
-                  💡 Nhấn "<span style={{ color: "#f97316", fontWeight: "700" }}>🔗 Sao chép link</span>" → đến bài đăng FB → dán vào bình luận bài FB bên dưới → click link → app Shopee mở → mua hàng nhé!
+                  💡 Nhấn "<span style={{ color: "#f97316", fontWeight: "700" }}>🔗 Sao chép link</span>" → đến bài đăng FB → dán vào bình luận bài đăng FB → click link → app voucher → mua hàng nhé!
                 </div>
 
                 {/* Voucher cards after result */}

@@ -192,17 +192,18 @@ export default function Home() {
 
         <h1 style={{
           display: "inline-block",
-          fontSize: "clamp(22px, 6vw, 30px)",
+          fontSize: "clamp(15px, 4vw, 18px)",
           fontWeight: "800",
           fontStyle: "italic",
           background: "linear-gradient(90deg, #ff3d7f, #c62a7a)",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
-          lineHeight: 1.35,
-          maxWidth: "340px",
+          lineHeight: 1.2,
+          maxWidth: "100%",
           margin: "0 auto",
+          whiteSpace: "nowrap",
         }}>
-          Đổi Link Săn Sale Shopee<br />Giảm 20-25% Cùng Mezz
+          Đổi Link Săn Sale Shopee · Giảm 20-25% Cùng Mezz
         </h1>
       </div>
 
@@ -326,11 +327,11 @@ export default function Home() {
                       <button
                         onClick={handleCopy}
                         style={{
-                          flex: 1, padding: "15px 0", border: "none", borderRadius: "14px",
+                          flex: 1, padding: "12px 0", border: "none", borderRadius: "14px",
                           background: copied ? "#169b2e" : "linear-gradient(90deg,#43d854,#23b142)",
-                          color: "#fff", fontSize: "15px", fontWeight: "800",
+                          color: "#fff", fontSize: "12px", fontWeight: "800",
                           cursor: "pointer", fontFamily: "inherit",
-                          display: "flex", alignItems: "center", justifyContent: "center", gap: "7px",
+                          display: "flex", alignItems: "center", justifyContent: "center", gap: "5px",
                         }}
                       >
                         <IconLink size={17} color="#fff" />
@@ -343,11 +344,11 @@ export default function Home() {
                         target="_blank"
                         rel="noreferrer"
                         style={{
-                          flex: 1, padding: "15px 0", border: "none", borderRadius: "14px",
+                          flex: 1, padding: "12px 0", border: "none", borderRadius: "14px",
                           background: "linear-gradient(90deg,#1877f2,#0d5be1)",
-                          color: "#fff", fontSize: "15px", fontWeight: "800",
+                          color: "#fff", fontSize: "12px", fontWeight: "800",
                           cursor: "pointer", textDecoration: "none",
-                          display: "flex", alignItems: "center", justifyContent: "center", gap: "8px",
+                          display: "flex", alignItems: "center", justifyContent: "center", gap: "6px",
                         }}
                       >
                         <FacebookLogo size={24} />
@@ -367,15 +368,11 @@ export default function Home() {
 
                 {/* Tip box */}
                 <div style={{
-                  marginTop: "16px", padding: "16px 18px",
+                  marginTop: "16px", padding: "10px 14px",
                   border: "2px dashed #ffb3cc", borderRadius: "18px",
-                  background: "#fff8fb", color: "#555", lineHeight: "1.7", fontSize: "14px",
+                  background: "#fff8fb", color: "#555", lineHeight: "1.5", fontSize: "11px",
                 }}>
-                  💡 Bạn hãy nhấn "<span style={{ color: "#f97316", fontWeight: "700" }}>🔗 Sao chép link</span>" và dán vào dưới bình luận của bài viết này sau đó click vào link đó app mở rồi mua hàng nhé:
-                  <br />
-                  <a href={FB_POST_URL} target="_blank" rel="noreferrer" style={{ color: "#0d5be1", wordBreak: "break-all" }}>
-                    {FB_POST_URL}
-                  </a>
+                  💡 Nhấn "<span style={{ color: "#f97316", fontWeight: "700" }}>🔗 Sao chép link</span>" → dán vào bình luận bài FB bên dưới → click link → app Shopee mở → mua hàng nhé!
                 </div>
 
                 {/* Voucher cards after result */}
@@ -383,33 +380,21 @@ export default function Home() {
                   <VoucherCard key={v.id} voucher={v} />
                 ))}
 
-                {/* Tip accordion */}
+                {/* Tip accordion → chuyển sang tab mã giảm giá */}
                 <div
-                  onClick={() => setTipOpen(!tipOpen)}
+                  onClick={() => setActiveTab("voucher")}
                   style={{
-                    marginTop: "16px", padding: "16px 20px",
-                    background: "#fffbea", borderRadius: tipOpen ? "16px 16px 0 0" : "16px",
+                    marginTop: "16px", padding: "14px 20px",
+                    background: "#fffbea", borderRadius: "16px",
                     cursor: "pointer", display: "flex", alignItems: "center",
                     justifyContent: "space-between", border: "1.5px solid #ffe58f",
                   }}
                 >
-                  <span style={{ color: "#b7791f", fontWeight: "700", fontSize: "15px" }}>
+                  <span style={{ color: "#b7791f", fontWeight: "700", fontSize: "14px" }}>
                     💡 <u>Mẹo săn Voucher 20-25% Shopee × Facebook</u>
                   </span>
-                  <span style={{ color: "#b7791f", fontSize: "18px", transition: "transform 0.2s", display: "inline-block", transform: tipOpen ? "rotate(180deg)" : "rotate(0deg)" }}>▾</span>
+                  <span style={{ color: "#b7791f", fontSize: "18px" }}>›</span>
                 </div>
-                {tipOpen && (
-                  <div style={{
-                    background: "#fffef0", border: "1.5px solid #ffe58f",
-                    borderTop: "none", borderRadius: "0 0 16px 16px",
-                    padding: "16px 20px", fontSize: "14px", color: "#555", lineHeight: 1.8,
-                  }}>
-                    <b>Bước 1:</b> Dán link Shopee vào ô trên và nhấn <b>Chuyển Đổi Ngay</b>.<br />
-                    <b>Bước 2:</b> Sao chép link affiliate vừa tạo.<br />
-                    <b>Bước 3:</b> Dán link vào bình luận bài đăng Facebook.<br />
-                    <b>Bước 4:</b> Click vào link đó → app Shopee mở → mua hàng → voucher tự áp dụng! 🎉
-                  </div>
-                )}
               </>
             )}
           </div>

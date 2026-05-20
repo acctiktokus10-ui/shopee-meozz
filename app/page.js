@@ -218,7 +218,7 @@ export default function Home() {
         }}>
           {[
             { key: "convert", label: "Chuyển link", Icon: () => <IconLink size={18} color={activeTab === "convert" ? "#fff" : "#aaa"} /> },
-            { key: "voucher", label: "Mã giảm giá", Icon: () => <IconGift size={18} color={activeTab === "voucher" ? "#fff" : "#aaa"} /> },
+            { key: "voucher", label: "Nhóm Săn Sale", Icon: () => <IconGift size={18} color={activeTab === "voucher" ? "#fff" : "#aaa"} /> },
           ].map(({ key, label, Icon }) => (
             <button
               key={key}
@@ -379,41 +379,71 @@ export default function Home() {
                   <VoucherCard key={v.id} voucher={v} />
                 ))}
 
-                {/* Tip accordion → chuyển sang tab mã giảm giá */}
-                <div
-                  onClick={() => setActiveTab("voucher")}
-                  style={{
-                    marginTop: "16px", padding: "14px 20px",
-                    background: "#fffbea", borderRadius: "16px",
-                    cursor: "pointer", display: "flex", alignItems: "center",
-                    justifyContent: "space-between", border: "1.5px solid #ffe58f",
-                  }}
-                >
-                  <span style={{ color: "#b7791f", fontWeight: "700", fontSize: "14px" }}>
-                    💡 <u>Mẹo săn Voucher 20-25% Shopee × Facebook</u>
-                  </span>
-                  <span style={{ color: "#b7791f", fontSize: "18px" }}>›</span>
-                </div>
               </>
             )}
           </div>
         )}
 
-        {/* ── VOUCHER TAB ── */}
+        {/* ── NHÓM SĂN SALE TAB ── */}
         {activeTab === "voucher" && (
           <div style={{ marginTop: "18px" }}>
-            <p style={{ textAlign: "center", color: "#888", fontSize: "14px", marginBottom: "16px" }}>
-              Chọn voucher bạn muốn sử dụng khi mua hàng
-            </p>
-            {VOUCHERS.map((v) => (
-              <VoucherCard
-                key={v.id}
-                voucher={v}
-                selectable
-                selected={selectedVoucher === v.id}
-                onSelect={() => setSelectedVoucher(v.id === selectedVoucher ? null : v.id)}
-              />
-            ))}
+            <a
+              href="https://zalo.me/g/qy1vucnmjgcmalxq6h8d"
+              target="_blank"
+              rel="noreferrer"
+              style={{ textDecoration: "none" }}
+            >
+              <div style={{
+                background: "#fff",
+                borderRadius: "20px",
+                padding: "28px 20px",
+                boxShadow: "0 4px 18px rgba(0,0,0,0.08)",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: "14px",
+                border: "2px solid #e8f4ff",
+                cursor: "pointer",
+                transition: "box-shadow 0.2s",
+              }}>
+                {/* Zalo logo */}
+                <div style={{
+                  width: "72px", height: "72px", borderRadius: "50%",
+                  background: "linear-gradient(135deg, #0068ff, #00aaff)",
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  boxShadow: "0 4px 14px rgba(0,104,255,0.35)",
+                }}>
+                  <span style={{ color: "#fff", fontWeight: "900", fontSize: "22px", letterSpacing: "-1px" }}>Zalo</span>
+                </div>
+
+                <div style={{ textAlign: "center" }}>
+                  <div style={{
+                    fontSize: "20px", fontWeight: "800",
+                    background: "linear-gradient(90deg, #ff3d7f, #c62a7a)",
+                    WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
+                    marginBottom: "6px",
+                  }}>
+                    Săn Sale Cùng Meozz 🛍️
+                  </div>
+                  <div style={{ fontSize: "13px", color: "#888", lineHeight: 1.6 }}>
+                    Tham gia nhóm để nhận deal hot,<br />voucher độc quyền mỗi ngày!
+                  </div>
+                </div>
+
+                <div style={{
+                  background: "linear-gradient(90deg, #0068ff, #00aaff)",
+                  color: "#fff", fontWeight: "800", fontSize: "15px",
+                  padding: "14px 36px", borderRadius: "50px",
+                  boxShadow: "0 4px 12px rgba(0,104,255,0.3)",
+                }}>
+                  Vào Nhóm Ngay →
+                </div>
+
+                <div style={{ fontSize: "11px", color: "#bbb" }}>
+                  Nhấn để mở Zalo và tham gia nhóm
+                </div>
+              </div>
+            </a>
           </div>
         )}
       </div>

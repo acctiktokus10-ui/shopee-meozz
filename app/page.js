@@ -198,12 +198,11 @@ export default function Home() {
           background: "linear-gradient(90deg, #ff3d7f, #c62a7a)",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
-          lineHeight: 1.2,
+          lineHeight: 1.3,
           maxWidth: "100%",
           margin: "0 auto",
-          whiteSpace: "nowrap",
         }}>
-          Đổi Link Săn Sale Shopee · Giảm 20-25% Cùng Mezz
+          Đổi Link Săn Sale Shopee<br />Giảm 20-25% Cùng Mezz
         </h1>
       </div>
 
@@ -372,7 +371,7 @@ export default function Home() {
                   border: "2px dashed #ffb3cc", borderRadius: "18px",
                   background: "#fff8fb", color: "#555", lineHeight: "1.5", fontSize: "11px",
                 }}>
-                  💡 Nhấn "<span style={{ color: "#f97316", fontWeight: "700" }}>🔗 Sao chép link</span>" → dán vào bình luận bài FB bên dưới → click link → app Shopee mở → mua hàng nhé!
+                  💡 Nhấn "<span style={{ color: "#f97316", fontWeight: "700" }}>🔗 Sao chép link</span>" → đến bài đăng FB → dán vào bình luận bài FB bên dưới → click link → app Shopee mở → mua hàng nhé!
                 </div>
 
                 {/* Voucher cards after result */}
